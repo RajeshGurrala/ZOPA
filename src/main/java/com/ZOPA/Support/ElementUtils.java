@@ -35,7 +35,6 @@ public class ElementUtils {
     private FileInputStream fileInputStream;
 
 
-
     public Wait waitForSomeTime() {
         Wait wait = new FluentWait(BaseClass.driver)
                 .withTimeout(20, SECONDS)
@@ -43,6 +42,7 @@ public class ElementUtils {
                 .ignoring(WebDriverException.class);
         return wait;
     }
+
     public void sendText(By by, String txt) {
         waitForSomeTime().until(ExpectedConditions.visibilityOfElementLocated(by));
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(by));
@@ -56,7 +56,8 @@ public class ElementUtils {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
         waitForSomeTime().until(ExpectedConditions.elementToBeClickable(element));
-        element.click();}
+        element.click();
+    }
 
 
     public void verifyStringMatch(By by, String expectedString) {
@@ -64,6 +65,7 @@ public class ElementUtils {
         String actualString = driver.findElement(by).getText();
         assertEquals(expectedString, actualString);
     }
+
     public void verifyStringContent(By by, String expectedString) {
         waitForSomeTime().until(ExpectedConditions.textToBePresentInElementLocated(by, expectedString));
         String actualString = driver.findElement(by).getText();
@@ -76,15 +78,16 @@ public class ElementUtils {
     }
 
     public WebDriver browser() {
-            if (getProperty("browser").equalsIgnoreCase("chrome")) {
-                System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
-                driver = new ChromeDriver();
-            } else if (getProperty("browser").equalsIgnoreCase("IE")) {
-                System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
-                driver = new InternetExplorerDriver();
+        if (getProperty("browser").equalsIgnoreCase("chrome")) {
+            System.setProperty("webdriver.chrome.driver", "DriverFiles\\chromedriver.exe");
+            driver = new ChromeDriver();
+        } else if (getProperty("browser").equalsIgnoreCase("IE")) {
+            System.setProperty("webdriver.ie.driver", "DriverFiles\\IEDriverServer.exe");
+            driver = new InternetExplorerDriver();
         }
         return driver;
     }
+
     public String getProperty(String key) {
 
         try {
@@ -97,26 +100,30 @@ public class ElementUtils {
         }
         return prop.getProperty(key);
     }
+
     public void captureScreenShot(String screenShotName) throws IOException {
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(source, new File("./ScreenShots/" + screenShotName + ".png"));
         System.out.println("screenShot taken");
     }
+
     public String randomNumber(int length) {
         return RandomStringUtils.randomNumeric(length);
     }
 
-    public int provideNumberLessThan6andGreaterThan0(){
+    public int provideNumberLessThan6andGreaterThan0() {
         Random random = new Random();
-        int  number = random.nextInt(5) + 1;
+        int number = random.nextInt(5) + 1;
         return number;
     }
+
     public void javaScriptExecutorClick(By by) {
         WebElement element = driver.findElement(by);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }
+
     public String randomName() {
         return RandomStringUtils.randomAlphabetic(6);
     }
@@ -126,16 +133,15 @@ public class ElementUtils {
         Select select = new Select(driver.findElement(by));
         select.selectByIndex(number);
     }
+
     public void searchAndAssertTextNotPresent(By by, String searchText) {
         String actualText = driver.findElement(by).getText();
         assertFalse(actualText.contains(searchText));
     }
-    public void waitForElementVisible(By by)  {
-        waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));}
 
-
-
-
+    public void waitForElementVisible(By by) {
+        waitForSomeTime().until(ExpectedConditions.presenceOfElementLocated(by));
+    }
 
 
 }

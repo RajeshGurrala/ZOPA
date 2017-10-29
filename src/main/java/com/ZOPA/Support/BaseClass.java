@@ -13,7 +13,7 @@ import java.io.IOException;
 public class BaseClass {
 
     public static WebDriver driver;
-    ElementUtils utils=new ElementUtils();
+    ElementUtils utils = new ElementUtils();
 
     @Before
     public void startUp() {
@@ -29,7 +29,7 @@ public class BaseClass {
     @After
     public void tearDown(Scenario scenario) throws IOException {
         if (scenario.isFailed()) {
-             utils.captureScreenShot(scenario.getName());
+            utils.captureScreenShot(scenario.getName());
         }
         driver.close();
         driver.quit();

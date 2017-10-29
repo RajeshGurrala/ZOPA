@@ -11,17 +11,17 @@ import cucumber.api.java.en.When;
  */
 public class GetQuote_stepDefs {
 
-    WebModel webModel=new WebModel();
+    WebModel webModel = new WebModel();
 
     @Given("^The user is on the home page$")
-    public void theUserIsOnTheHomePage()  {
+    public void theUserIsOnTheHomePage() {
         webModel.getHomePage().assertHomePage();
 
     }
 
     @When("^He navigates to the get_loan page and provides the amount and term time$")
     public void heNavigatesToTheGet_loanPageAndProvidesTheAmountAndTermTime() throws InterruptedException {
-    webModel.getHomePage().navigateToLoansPage();
+        webModel.getHomePage().navigateToLoansPage();
         webModel.loansPage().assertLoansPage();
         webModel.loansPage().chooseLoanAmount();
         webModel.loansPage().chooseYear();
@@ -35,8 +35,6 @@ public class GetQuote_stepDefs {
         webModel.getPersonalisedLoanRatesPage().populateAboutYou();
         webModel.getPersonalisedLoanRatesPage().populateAddressHistory();
         webModel.getPersonalisedLoanRatesPage().financialDetails();
-
-
 
 
     }
