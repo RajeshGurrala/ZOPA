@@ -38,7 +38,7 @@ public class PersonalisedLoanRatesPage {
 
     ElementUtils utils = new ElementUtils();
 
-    public void assertPersonalisedLoadPage() throws InterruptedException {
+    public void assertPersonalisedLoanPage() throws InterruptedException {
         utils.verifyStringMatch(By.xpath(TEXT_ON_PERSONALISED_LOAN_RATES_PAGE), "About you");
     }
 
