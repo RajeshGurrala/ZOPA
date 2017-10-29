@@ -10,7 +10,6 @@ public class HomePage {
 
   ElementUtils utils=new ElementUtils();
 
-
      private final String LOAD_LOANS_PAGE="//h1[text()='Simple loans. Smart investments.']/following-sibling::div//a[text()='Get a Zopa loan']";
 
    public void assertHomePage() {
