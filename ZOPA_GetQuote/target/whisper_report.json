@@ -1,0 +1,86 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 6053550685,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.startUp()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "User should be able to provide all the valid details before getting a quote",
+        "description": "",
+        "id": "getquote;user-should-be-able-to-provide-all-the-valid-details-before-getting-a-quote",
+        "after": [
+          {
+            "result": {
+              "duration": 969497890,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseClass.tearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 74771724,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "The user is on the home page",
+            "match": {
+              "location": "GetQuote_stepDefs.theUserIsOnTheHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3310019815,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "He navigates to the get_loan page and provides the amount and term time",
+            "match": {
+              "location": "GetQuote_stepDefs.heNavigatesToTheGet_loanPageAndProvidesTheAmountAndTermTime()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 11473376046,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "He should be directed to a secured link where he would be able to provide his personal details",
+            "match": {
+              "location": "GetQuote_stepDefs.heShouldBeDirectedToASecuredLinkWhereHeWouldBeAbleToProvideHisPersonalDetails()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "getQuote",
+    "description": "",
+    "id": "getquote",
+    "keyword": "Feature",
+    "uri": "com/ZOPA/FeatureFiles/GetQuote.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@GetQuote"
+      }
+    ]
+  }
+]
